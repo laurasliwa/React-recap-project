@@ -14,6 +14,9 @@
 // [] Use a package to generate unique id's like nanoid or ui
 // [] Develop a ColorInput component to handle synchronized text and color inputs,
 // ensuring that they reflect the same value. ( Controlled Inputs )
+import ColorInput from "../ColorInput/ColorInput";
+import "../Color/Color.jsx";
+import "../ColorForm/ColorForm.css";
 
 export default function ColorForm({
   onSubmitColor,
@@ -42,25 +45,13 @@ export default function ColorForm({
       <label htmlFor="hex">
         Hex
         <br />
-        <input type="text" id="hex" name="hex" defaultValue={initialData.hex} />
-        <input
-          type="color"
-          id="hex"
-          name="hex"
-          defaultValue={initialData.hex}
-        />
+        <ColorInput id="hex" defaultValue={initialData.hex} />
       </label>
       <br />
       <label htmlFor="contrastText">
         Contrast Text
         <br />
-        <input
-          type="text"
-          id="contrastText"
-          name="contrastText"
-          defaultValue={initialData.contrastText}
-        />
-        <input type="color" id="contrastText" name="contrastText" />
+        <ColorInput id="contrastText" defaultValue={initialData.contrastText} />
       </label>
       <br />
       <button type="submit">ADD COLOR</button>
