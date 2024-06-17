@@ -12,9 +12,9 @@ export default function Color({ color }) {
     setIsConfirming(false);
   }
 
-  function confirmDelete() {
-    onDeleteColor(color.id);
-  }
+  // function confirmDelete() {
+  //   onDeleteColor(color.id);
+  // }
 
   return (
     <div
@@ -33,9 +33,9 @@ export default function Color({ color }) {
           <button className="color-delete" onClick={cancelDelete}>
             Cancel
           </button>
-          <button className="color-delete" onClick={confirmDelete}>
+          {/* <button className="color-delete" onClick={confirmDelete}>
             Delete
-          </button>
+          </button> */}
         </>
       ) : (
         <button onClick={handleDelete}>Delete</button>
