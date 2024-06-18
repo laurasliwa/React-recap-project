@@ -1,20 +1,16 @@
 import { useState } from "react";
 import "./Color.css";
 
-export default function Color({ color }) {
+export default function Color({ color, onDeleteColor }) {
   const [isConfirming, setIsConfirming] = useState(false);
 
-  function handleDelete() {
-    setIsConfirming(true);
+  function handleConfirmMessage() {
+    setIsConfirming(!isConfirming);
   }
 
-  function cancelDelete() {
-    setIsConfirming(false);
+  function confirmDelete(id) {
+    onDeleteColor(id);
   }
-
-  // function confirmDelete() {
-  //   onDeleteColor(color.id);
-  // }
 
   return (
     <div
@@ -30,15 +26,21 @@ export default function Color({ color }) {
       {isConfirming ? (
         <>
           <p className="color-card-highlight">Really delete?</p>
-          <button className="color-delete" onClick={cancelDelete}>
+          <button className="color-delete" onClick={handleConfirmMessage}>
             Cancel
           </button>
-          {/* <button className="color-delete" onClick={confirmDelete}>
-            Delete
-          </button> */}
+          {/* erst wenn der button wech damit geklickt wird, soll die funktion ausgeführt werden */}
+          <button
+            className="color-delete"
+            onClick={() => {
+              confirmDelete(color.id);
+            }}
+          >
+            Wech damit
+          </button>
         </>
       ) : (
-        <button onClick={handleDelete}>Delete</button>
+        <button onClick={handleConfirmMessage}>Delete</button>
       )}
     </div>
   );
