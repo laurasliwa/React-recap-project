@@ -73,12 +73,12 @@ export default function Color({ color, onDeleteColor }) {
                 />
               </label>
             </form>
-            <button className="color-delete" onClick={handleConfirmMessage}>
+            <button className="color-edit" onClick={handleConfirmMessage}>
               Cancel
             </button>
             {/* erst wenn der button wech damit geklickt wird, soll die funktion ausgeführt werden */}
             <button
-              className="color-delete"
+              className="color-edit"
               onClick={() => {
                 confirmDelete(color.id);
               }}
